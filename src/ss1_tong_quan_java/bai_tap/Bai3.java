@@ -292,6 +292,8 @@ public class Bai3 {
                 }
             }
             System.out.println(str);
+        } else {
+            System.out.println("out of ability");
         }
     }
 }
