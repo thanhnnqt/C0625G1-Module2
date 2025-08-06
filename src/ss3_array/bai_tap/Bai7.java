@@ -18,9 +18,13 @@ public class Bai7 {
         }
         int total = 0;
         for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                total += array[i][j];
-            }
+            total += array[i][i];
+        }
+        for (int i = 0; i < col; i++) {
+            total += array[array.length - 1 - i][i];
+        }
+        if (row % 2 != 0) {
+            total -= array[(array.length - 1) / 2][(array.length - 1) / 2];
         }
         System.out.println("sum array = " + total);
     }
