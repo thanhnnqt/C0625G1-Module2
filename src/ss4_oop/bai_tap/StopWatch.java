@@ -1,38 +1,30 @@
 package ss4_oop.bai_tap;
 
 public class StopWatch {
-    private int startTime, endTime;
+    long startTime;
+    long endTime;
 
-    public StopWatch(int startTime, int endTime) {
-        this.startTime = startTime;
-        this.endTime = endTime;
+    public StopWatch() {
+        startTime = System.currentTimeMillis();
     }
 
-    public int getStartTime() {
+    public void start() {
+        this.startTime = System.currentTimeMillis();
+    }
+
+    public void stop() {
+        this.endTime = System.currentTimeMillis();
+    }
+
+    public long getStartTime() {
         return startTime;
     }
 
-    public int getEndTime() {
+    public long getEndTime() {
         return endTime;
     }
 
-    public void setStartTime(int startTime) {
-        this.startTime = startTime;
-    }
-
-    public void setEndTime(int endTime) {
-        this.endTime = endTime;
-    }
-
-    public int start() {
-        return getStartTime();
-    }
-
-    public int stop() {
-        return getEndTime();
-    }
-
-    public int getElapsedTime() {
+    public long getElapsedTime() {
         return getEndTime() - getStartTime();
     }
 }

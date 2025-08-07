@@ -54,12 +54,16 @@ public class QuadraticEquation {
     }
 
     public String result() {
-        if (delta() < 0) {
-            return "The equation has no roots";
-        } else if (delta() == 0) {
-            return "x = " + getRoot3();
+        if (a == 0) {
+            return "This not quadratic equation";
         } else {
-            return "x1 = " + getRoot1() + "; x2 = " + getRoot2();
+            if (delta() < 0) {
+                return "The equation has no roots";
+            } else if (delta() == 0) {
+                return "x = " + getRoot3();
+            } else {
+                return "x1 = " + getRoot1() + "; x2 = " + getRoot2();
+            }
         }
     }
 }
