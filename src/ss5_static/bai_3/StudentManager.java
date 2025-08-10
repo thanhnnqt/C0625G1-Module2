@@ -1,5 +1,7 @@
 package ss5_static.bai_3;
 
+import java.util.Scanner;
+
 public class StudentManager {
     private static Student[] studentlist = new Student[100];
 
@@ -45,11 +47,55 @@ public class StudentManager {
         }
     }
 
-    public void del(int idd) {
+    public Student[] del() {
+        Student[] newList;
+        Scanner scanner = new Scanner(System.in);
+        int idDel = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < studentlist.length; i++) {
-            if (studentlist[i].getId() == idd) {
-                studentlist[i] = studentlist[i + 1];
+            if (studentlist[i] != null && studentlist[i].getId() == idDel) {
+                for (int j = i; j < studentlist.length - 1; j++) {
+                    studentlist[i] = studentlist[i + 1];
+                }
+                newList = this.displayAll();
+                if (newList.length > 1 && newList[newList.length - 1] == newList[newList.length - 2]) {
+                    newList[newList.length - 1] = null;
+                }
+                return newList;
             }
         }
+        return null;
+    }
+
+    public void edit() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập id sinh viên");
+        int idEdit = Integer.parseInt(scanner.nextLine());
+        boolean check = false;
+        for (int i = 0; i < studentlist.length; i++) {
+            if (studentlist[i] != null & studentlist[i].getId() == idEdit) {
+                System.out.println("Nhập id sinh viên mới");
+                int newId = Integer.parseInt(scanner.nextLine());
+                System.out.println("Nhập tên sinh viên mới");
+                String name = scanner.nextLine();
+                studentlist[i] = new Student(newId, name);
+                System.out.println("Thêm thành công");
+                check = true;
+                break;
+            }
+        }
+        if (!check) {
+            System.out.println("Không tồn tại id sinh viên");
+        }
+    }
+    public Student search() {
+        System.out.println("Nhập id để tìm sinh viên");
+        Scanner scanner = new Scanner(System.in);
+        int idSearch = Integer.parseInt(scanner.nextLine());
+        for (Student student : studentlist) {
+            if (student != null && student.getId() == idSearch) {
+                return student;
+            }
+        }
+        return null;
     }
 }

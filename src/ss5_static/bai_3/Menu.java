@@ -43,16 +43,33 @@ public class Menu {
                     break;
                 case EDIT:
                     System.out.println("Sửa danh sách");
-                    System.out.println("Nhập id");
-                    int idd = Integer.parseInt(scanner.nextLine());
-                    studentManager.del(idd);
-                    System.out.println("Đã xóa");
+                    studentManager.edit();
+                    for (int i = 0; i < studentManager.displayAll().length; i++) {
+                        System.out.println(studentManager.displayAll()[i]);
+                    }
                     break;
                 case DEL:
                     System.out.println("Xóa sinh viên");
+                    Student[] deleteList = studentManager.del();
+                    if (deleteList == null) {
+                        System.out.println("Không tồn tại id sinh viên");
+                    } else {
+                        System.out.println("Xóa sinh viên thành công");
+                        for (Student studentDel : deleteList) {
+                            if (studentDel == null) {
+                                System.out.println(studentDel);
+                            }
+                        }
+                    }
                     break;
                 case SEARCH:
                     System.out.println("Tìm sinh viên");
+                    Student studentSearch = studentManager.search();
+                    if (studentSearch == null) {
+                        System.out.println("Sinh viên không tồn tại");
+                    } else {
+                        System.out.println(studentSearch);
+                    }
                     break;
                 default:
                     check = false;
