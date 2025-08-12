@@ -1,8 +1,8 @@
 package ss6_inheritance.bai_1;
 
 public class Circle {
-    private int radius;
-    private String color;
+    public int radius;
+    public String color;
 
     public Circle(int radius, String color) {
         this.radius = radius;
