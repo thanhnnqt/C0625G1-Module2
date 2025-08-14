@@ -8,7 +8,7 @@ import bai_tap_co_ban.view.TruckView;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TrucController {
+public class TruckController {
     private ITruckService truckService = new TruckService();
 
     public void displayMenu() {

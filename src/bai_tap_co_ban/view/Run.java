@@ -1,7 +1,7 @@
 package bai_tap_co_ban.view;
 
 import bai_tap_co_ban.controller.CarController;
-import bai_tap_co_ban.controller.TrucController;
+import bai_tap_co_ban.controller.TruckController;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class Run {
 
     public static void displayMain() {
         CarController carController = new CarController();
-        TrucController trucController = new TrucController();
+        TruckController trucController = new TruckController();
         Scanner scanner = new Scanner(System.in);
         final int CAR = 1;
         final int TRUCK = 2;

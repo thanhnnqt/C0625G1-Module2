@@ -39,7 +39,7 @@ public class CarView {
         int soChoNgoi = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập kiểu xe");
         String kieuXe = scanner.nextLine();
-        Car car1 = new Car(bienSo, hangSX, namSX, chuSH,soChoNgoi, kieuXe);
-        return car1;
+        Car carEdit = new Car(bienSo, hangSX, namSX, chuSH,soChoNgoi, kieuXe);
+        return carEdit;
     }
 }
