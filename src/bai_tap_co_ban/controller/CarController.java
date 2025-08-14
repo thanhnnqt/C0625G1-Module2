@@ -17,6 +17,7 @@ public class CarController {
         final int ADD = 2;
         final int DELETE = 3;
         final int SEARCH = 4;
+        final int EDIT = 5;
         boolean flag = true;
         while (flag) {
             System.out.println("Quản lý phương tiện");
@@ -25,8 +26,8 @@ public class CarController {
                     "\n 2. Thêm mới" +
                     "\n 3. Xoá" +
                     "\n 4. Tìm kiếm" +
-                    "\n 4. Sắp xếp theo điểm " +
-                    "\n 5. Thoát");
+                    "\n 5. Sửa danh sách" +
+                    "\n 6. Quay lại");
 
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -39,7 +40,7 @@ public class CarController {
                     System.out.println("----Đây là chức năng thêm mới----");
                     Car car = CarView.inputData();
                     this.carService.add(car);
-                    System.out.println("Thêm moới thành công");
+                    System.out.println("Thêm mới thành công");
                     break;
                 case DELETE:
                     System.out.println("----Đây là chức năng xoá----");
@@ -50,6 +51,17 @@ public class CarController {
                     break;
                 case SEARCH:
                     System.out.println("----Đây là chức năng tìm kiếm----");
+                    System.out.println("Nhập biển kiếm soát");
+                    int searchbienKiemSoat = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Xe đang tìm là:");
+                    this.carService.search(searchbienKiemSoat);
+                    break;
+                case EDIT:
+                    System.out.println("----Đây là chức năng sửa danh sách----");
+                    System.out.println("Nhập biển kiếm soát");
+                    int editBienKiemSoat = Integer.parseInt(scanner.nextLine());
+                    Car car1 = CarView.editData(editBienKiemSoat);
+                    this.carService.edit(editBienKiemSoat, car1);
                     break;
                 default:
                     flag = false;

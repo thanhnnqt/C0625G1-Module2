@@ -28,4 +28,18 @@ public class CarView {
         Car car = new Car(bienSo, hangSX, namSX, chuSH,soChoNgoi, kieuXe);
         return car;
     }
+    public static Car editData(int bienSo){
+        System.out.println("Nhập hãng sản xuất");
+        String hangSX = scanner.nextLine();
+        System.out.println("Nhập năm sản xuất");
+        int namSX = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập tên chủ sở hữu");
+        String chuSH = scanner.nextLine();
+        System.out.println("Nhập số chỗ ngồi");
+        int soChoNgoi = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập kiểu xe");
+        String kieuXe = scanner.nextLine();
+        Car car1 = new Car(bienSo, hangSX, namSX, chuSH,soChoNgoi, kieuXe);
+        return car1;
+    }
 }

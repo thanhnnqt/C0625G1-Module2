@@ -22,4 +22,13 @@ public class CarService implements ICarService {
     public boolean delete(int bienKiemSoat) {
         return carRepository.delete(bienKiemSoat);
     }
+    @Override
+    public boolean search(int bienKiemSoat) {
+        return carRepository.search(bienKiemSoat);
+    }
+
+    @Override
+    public boolean edit(int index, Car car) {
+        return carRepository.edit(index, car);
+    }
 }

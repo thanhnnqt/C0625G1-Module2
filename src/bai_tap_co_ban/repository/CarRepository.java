@@ -37,4 +37,26 @@ public class CarRepository implements ICarRepository {
         }
         return false;
     }
+
+    @Override
+    public boolean search(int bienKiemSoat) {
+        for (Car car : carList) {
+            if (car.getBienKiemSoat() == bienKiemSoat) {
+                System.out.println(car);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean edit(int bienKiemSoat, Car car) {
+        for (int i = 0; i < carList.size(); i++) {
+            if (carList.get(i).getBienKiemSoat() == bienKiemSoat) {
+                carList.set(i, car);
+                return true;
+            }
+        }
+        return false;
+    }
 }

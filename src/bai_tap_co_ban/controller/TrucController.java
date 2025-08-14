@@ -26,7 +26,7 @@ public class TrucController {
                     "\n 3. Xoá" +
                     "\n 4. Tìm kiếm" +
                     "\n 4. Sắp xếp theo điểm " +
-                    "\n 5. Thoát");
+                    "\n 5. Quay lại");
 
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
