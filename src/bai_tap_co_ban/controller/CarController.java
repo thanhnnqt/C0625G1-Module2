@@ -60,8 +60,8 @@ public class CarController {
                     System.out.println("----Đây là chức năng sửa danh sách----");
                     System.out.println("Nhập biển kiếm soát");
                     int editBienKiemSoat = Integer.parseInt(scanner.nextLine());
-                    Car car1 = CarView.editData(editBienKiemSoat);
-                    this.carService.edit(editBienKiemSoat, car1);
+                    Car carEdit = CarView.editData(editBienKiemSoat);
+                    this.carService.edit(editBienKiemSoat, carEdit);
                     break;
                 default:
                     flag = false;
