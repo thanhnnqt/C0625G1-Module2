@@ -9,5 +9,5 @@ public interface ICarRepository {
     boolean add(Car car);
     boolean delete(int bienKiemSoat);
     boolean search(int bienKiemSoat);
-    boolean edit(int index, Car car);
+    Car edit(int index, Car car);
 }

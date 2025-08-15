@@ -62,6 +62,7 @@ public class CarController {
                     int editBienKiemSoat = Integer.parseInt(scanner.nextLine());
                     Car carEdit = CarView.editData(editBienKiemSoat);
                     this.carService.edit(editBienKiemSoat, carEdit);
+                    System.out.println("Đã sửa thành công");
                     break;
                 default:
                     flag = false;
