@@ -43,6 +43,6 @@ public class SanPham {
 
     @Override
     public String toString() {
-        return "id = " + getId() + "; tên sản phẩm: " + getName() + "; giá: " + getPrice();
+        return "id = " + getId() + "; tên sản phẩm: " + getName() + "; giá: " + getPrice() + " VND/Kg";
     }
 }
