@@ -11,6 +11,11 @@ public class Truck extends Vehicle {
     public Truck() {
     }
 
+    @Override
+    public String getInfoToCSV() {
+        return this.getBienKiemSoat()+","+this.getHangSanXuat()+","+this.getNamSanXuat()+","+this.getChuSoHuu()+","+this.getTaiTrong();
+    }
+
     public int getTaiTrong() {
         return taiTrong;
     }

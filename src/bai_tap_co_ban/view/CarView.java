@@ -3,11 +3,12 @@ package bai_tap_co_ban.view;
 import bai_tap_co_ban.entity.Car;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CarView {
     private static Scanner scanner = new Scanner(System.in);
-    public static void display(ArrayList<Car> carList) {
+    public static void display(List<Car> carList) {
         for (Car car : carList) {
             System.out.println(car);
         }

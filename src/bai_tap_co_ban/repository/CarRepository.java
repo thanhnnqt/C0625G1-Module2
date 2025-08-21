@@ -1,62 +1,111 @@
 package bai_tap_co_ban.repository;
 
 import bai_tap_co_ban.entity.Car;
+import bai_tap_co_ban.util.ReadAndWriteFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarRepository implements ICarRepository {
-    private static ArrayList<Car> carList = new ArrayList<>();
-
-    static {
-        Car car1 = new Car(12345, "Honda", 1996, "Thanh1", 4, "Xe Con");
-        Car car2 = new Car(23456, "Yamaha", 1996, "Thanh2", 5, "Xe Khach");
-        Car car3 = new Car(34567, "Mec", 1996, "Thanh3", 7, "Xe Taxi");
-        carList.add(car1);
-        carList.add(car2);
-        carList.add(car3);
-    }
+    public static final String FILE_PATH = "src/bai_tap_co_ban/data/car.csv";
 
     @Override
-    public ArrayList<Car> findAll() {
+    public List<Car> findAll() {
+        List<Car> carList = new ArrayList<>();
+        try {
+            List<String> stringList = ReadAndWriteFile.readFileCSV(FILE_PATH);
+            String[] arrayCar = null;
+            for (String line : stringList) {
+                arrayCar = line.split(",");
+                Car car = new Car(Integer.parseInt(arrayCar[0]), arrayCar[1], Integer.parseInt(arrayCar[2]), arrayCar[3], Integer.parseInt(arrayCar[4]), arrayCar[5]);
+                carList.add(car);
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi đọc file");
+        }
         return carList;
     }
 
     @Override
     public boolean add(Car car) {
-        carList.add(car);
+        List<String> stringList = new ArrayList<>();
+        stringList.add(car.getInfoToCSV());
+        try {
+            ReadAndWriteFile.writeFileCSV(FILE_PATH, stringList, true);
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file");
+            return false;
+        }
         return true;
     }
 
     @Override
     public boolean delete(int bienKiemSoat) {
-        for (Car car : carList) {
-            if (car.getBienKiemSoat() == bienKiemSoat) {
-                carList.remove(car);
-                return true;
+        try {
+            List<Car> carList = findAll();
+            boolean removed = false;
+            for (int i = 0; i < carList.size(); i++) {
+                if (bienKiemSoat == carList.get(i).getBienKiemSoat()) {
+                    carList.remove(i);
+                    removed = true;
+                    break;
+                }
             }
+            if (removed) {
+                List<String> stringList = new ArrayList<>();
+                for (Car car : carList) {
+                    stringList.add(car.getInfoToCSV());
+                }
+                ReadAndWriteFile.writeFileCSV(FILE_PATH, stringList, false);
+            }
+            return removed;
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file");
+            return false;
         }
-        return false;
     }
 
     @Override
-    public boolean search(int bienKiemSoat) {
-        for (Car car : carList) {
-            if (car.getBienKiemSoat() == bienKiemSoat) {
-                System.out.println(car);
-                return true;
+    public Car search(int bienKiemSoat) {
+        List<Car> carList = findAll();
+        try {
+            for (Car car : carList) {
+                if (bienKiemSoat == car.getBienKiemSoat()) {
+                    return car;
+                }
             }
-        }
-        return false;
-    }
-
-    @Override
-    public Car edit(int bienKiemSoat, Car car) {
-        for (int i = 0; i < carList.size(); i++) {
-            if (carList.get(i).getBienKiemSoat() == bienKiemSoat) {
-                carList.set(i, car);
-                return carList.get(i);
-            }
+        } catch (Exception e) {
+            System.out.println("Lỗi đọc file");
         }
         return null;
     }
+
+    @Override
+    public boolean edit(int bienSo, Car ncar) {
+        try {
+            List<Car> carList = findAll();
+            boolean editCar = false;
+            for (int i = 0; i < carList.size(); i++) {
+                if (bienSo == carList.get(i).getBienKiemSoat()) {
+                    carList.set(i, ncar);
+                    editCar = true;
+                    break;
+                }
+            }
+            if (editCar) {
+                List<String> stringList = new ArrayList<>();
+                for (Car car : carList) {
+                    stringList.add(car.getInfoToCSV());
+                }
+                ReadAndWriteFile.writeFileCSV(FILE_PATH, stringList, false);
+            }
+            return editCar;
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file");
+            return false;
+        }
+    }
 }
+
+

@@ -1,6 +1,6 @@
 package bai_tap_co_ban.entity;
 
-public class Vehicle {
+public abstract class Vehicle {
     public int bienKiemSoat;
     public String hangSanXuat;
     public int namSanXuat;
@@ -47,6 +47,8 @@ public class Vehicle {
     public void setChuSoHuu(String chuSoHuu) {
         this.chuSoHuu = chuSoHuu;
     }
+
+    public abstract String getInfoToCSV();
 
     @Override
     public String toString() {

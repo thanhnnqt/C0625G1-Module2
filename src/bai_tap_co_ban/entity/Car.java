@@ -13,6 +13,11 @@ public class Car extends Vehicle {
     public Car() {
     }
 
+    @Override
+    public String getInfoToCSV() {
+        return this.getBienKiemSoat()+","+this.getHangSanXuat()+","+this.getNamSanXuat()+","+this.getChuSoHuu()+","+this.getSoChoNgoi()+","+this.getKieuXe();
+    }
+
     public int getSoChoNgoi() {
         return soChoNgoi;
     }
@@ -31,7 +36,7 @@ public class Car extends Vehicle {
 
     @Override
     public String toString() {
-        return "Car: " + "Biển số: " + bienKiemSoat + "; Hãng sản xuất: " + hangSanXuat + "; Năm sản xuất: " + namSanXuat +
-                "; Chủ sở hữu: " + chuSoHuu + "; Số chỗ ngồi: " + soChoNgoi + "; Kiểu xe: " + kieuXe;
+        return bienKiemSoat + "," + hangSanXuat + "," + namSanXuat +
+                "," + chuSoHuu + "," + soChoNgoi + "," + kieuXe;
     }
 }

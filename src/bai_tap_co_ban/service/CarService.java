@@ -4,13 +4,13 @@ import bai_tap_co_ban.entity.Car;
 import bai_tap_co_ban.repository.CarRepository;
 import bai_tap_co_ban.repository.ICarRepository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class CarService implements ICarService {
     private final ICarRepository carRepository = new CarRepository();
 
     @Override
-    public ArrayList<Car> findAll() {
+    public List<Car> findAll() {
         return carRepository.findAll();
     }
 
@@ -25,12 +25,12 @@ public class CarService implements ICarService {
     }
 
     @Override
-    public boolean search(int bienKiemSoat) {
+    public Car search(int bienKiemSoat) {
         return carRepository.search(bienKiemSoat);
     }
 
     @Override
-    public Car edit(int index, Car car) {
+    public boolean edit(int index, Car car) {
         return carRepository.edit(index, car);
     }
 }

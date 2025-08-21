@@ -5,7 +5,7 @@ import bai_tap_co_ban.service.CarService;
 import bai_tap_co_ban.service.ICarService;
 import bai_tap_co_ban.view.CarView;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CarController {
@@ -33,7 +33,7 @@ public class CarController {
             switch (choice) {
                 case DISPLAY:
                     System.out.println("----Đây là chức năng hiển thị----");
-                    ArrayList<Car> carList = this.carService.findAll();
+                    List<Car> carList = this.carService.findAll();
                     CarView.display(carList);
                     break;
                 case ADD:
@@ -54,7 +54,8 @@ public class CarController {
                     System.out.println("Nhập biển kiếm soát");
                     int searchbienKiemSoat = Integer.parseInt(scanner.nextLine());
                     System.out.println("Xe đang tìm là:");
-                    this.carService.search(searchbienKiemSoat);
+                    Car carSeacrh = this.carService.search(searchbienKiemSoat);
+                    System.out.println(carSeacrh);
                     break;
                 case EDIT:
                     System.out.println("----Đây là chức năng sửa danh sách----");
