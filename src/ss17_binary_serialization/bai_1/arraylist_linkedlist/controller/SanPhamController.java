@@ -80,15 +80,15 @@ public class SanPhamController {
                     break;
                 case SORTAB:
                     System.out.println("----Đây là chức năng sắp xếp----");
-                    ((SanPhamService)sanPhamService).sortAB();
-                    for (SanPham sanPhamSort : sanPhamList) {
+                    List<SanPham> sanPhamList1 = ((SanPhamService)sanPhamService).sortAB();
+                    for (SanPham sanPhamSort : sanPhamList1) {
                         System.out.println(sanPhamSort);
                     }
                     break;
                 case SORTBA:
                     System.out.println("----Đây là chức năng sắp xếp----");
-                    ((SanPhamService)sanPhamService).sortBA();
-                    for (SanPham sanPhamSort : sanPhamList) {
+                    List<SanPham> sanPhamList2 = ((SanPhamService)sanPhamService).sortBA();
+                    for (SanPham sanPhamSort : sanPhamList2) {
                         System.out.println(sanPhamSort);
                     }
                     break;

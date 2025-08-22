@@ -34,11 +34,13 @@ public class SanPhamService implements ISanPhamService {
         return sanPhamRepository.edit(i, sanPham);
     }
 
-    public void sortAB() {
+    public List<SanPham> sortAB() {
         ((SanPhamRepository) sanPhamRepository).sortAB();
+        return ((SanPhamRepository) sanPhamRepository).sortAB();
     }
 
-    public void sortBA() {
+    public List<SanPham> sortBA() {
         ((SanPhamRepository) sanPhamRepository).sortBA();
+        return ((SanPhamRepository) sanPhamRepository).sortBA();
     }
 }
