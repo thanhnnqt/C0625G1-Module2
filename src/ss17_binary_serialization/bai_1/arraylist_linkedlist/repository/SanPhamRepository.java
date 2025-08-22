@@ -62,15 +62,17 @@ public class SanPhamRepository implements ISanPhamRepository {
         }
         return null;
     }
-    public void sortAB () {
+    public List<SanPham> sortAB () {
         List<SanPham> sanPhamList = new ArrayList<>();
         sanPhamList = ReadAndWriteFile.readListObjectFromDat(SANPHAM_DAT);
         sanPhamList.sort(new SortAB());
+        return sanPhamList;
     }
 
-    public void sortBA () {
+    public List<SanPham> sortBA () {
         List<SanPham> sanPhamList = new ArrayList<>();
         sanPhamList = ReadAndWriteFile.readListObjectFromDat(SANPHAM_DAT);
         sanPhamList.sort(new SortBA());
+        return sanPhamList;
     }
 }
