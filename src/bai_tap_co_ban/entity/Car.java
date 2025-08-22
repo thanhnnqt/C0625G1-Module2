@@ -15,7 +15,7 @@ public class Car extends Vehicle {
 
     @Override
     public String getInfoToCSV() {
-        return this.getBienKiemSoat()+","+this.getHangSanXuat()+","+this.getNamSanXuat()+","+this.getChuSoHuu()+","+this.getSoChoNgoi()+","+this.getKieuXe();
+        return this.getBienKiemSoat() + "," + this.getHangSanXuat() + "," + this.getNamSanXuat() + "," + this.getChuSoHuu() + "," + this.getSoChoNgoi() + "," + this.getKieuXe();
     }
 
     public int getSoChoNgoi() {

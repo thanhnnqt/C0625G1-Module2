@@ -2,7 +2,6 @@ package bai_tap_co_ban.view;
 
 import bai_tap_co_ban.entity.Car;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
