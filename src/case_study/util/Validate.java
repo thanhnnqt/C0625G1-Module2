@@ -10,7 +10,7 @@ public class Validate {
     private final static String MAIL = "^\\w+@\\w+([.]\\w+)*$";
     private final static String GENDER = "^(male|female)$";
     private final static String ID_SERVICE = "^SV(VL|HO|RO)-\\d{4}";
-    private final static String NAME_SERVICE = "^[A-Z][a-z]*(\\s[a-z]+)+$";
+    private final static String NAME_SERVICE = "^[A-Z][a-z]*(\\s[a-z]+)*$";
 
     public static void ValidateName(String name) throws InputException {
         if (!name.matches(NAME)) {
