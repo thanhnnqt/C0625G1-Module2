@@ -16,6 +16,7 @@ public class BookingManagementController {
     private static final ContractRepository contractRepository = new ContractRepository();
     private static final BookingService bookingService = new BookingService(bookingRepository, contractRepository);
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     public void displayMenu() {
         final int ADD = 1;
         final int DISPLAY = 2;
@@ -53,39 +54,35 @@ public class BookingManagementController {
             }
         }
     }
+
     private void addNewBooking() {
         System.out.println("\n--- ADD NEW BOOKING ---");
-
         System.out.print("Enter id booking: ");
         String maBooking = scanner.nextLine();
-
-        System.out.print("Nhập mã khách hàng: ");
+        System.out.print("Enter id customer: ");
         String maKhachHang = scanner.nextLine();
-
-        System.out.print("Nhập mã dịch vụ: ");
+        System.out.print("Enter id service: ");
         String maDichVu = scanner.nextLine();
-
-        LocalDate ngayBatDau = null;
-        LocalDate ngayKetThuc = null;
-        LocalDate ngayBooking = null;
+        LocalDate startDate = null;
+        LocalDate endDate = null;
+        LocalDate dateBooking = null;
         while (true) {
             try {
-                System.out.print("Nhập ngày bắt đầu (dd/MM/yyyy): ");
-                ngayBooking = LocalDate.parse(scanner.nextLine(), formatter);
-                System.out.print("Nhập ngày bắt đầu (dd/MM/yyyy): ");
-                ngayBatDau = LocalDate.parse(scanner.nextLine(), formatter);
-
-                System.out.print("Nhập ngày kết thúc (dd/MM/yyyy): ");
-                ngayKetThuc = LocalDate.parse(scanner.nextLine(), formatter);
-                if (ngayBatDau.isBefore(ngayKetThuc)) {
+                System.out.print("Enter date booking (dd/MM/yyyy): ");
+                dateBooking = LocalDate.parse(scanner.nextLine(), formatter);
+                System.out.print("Enter start date (dd/MM/yyyy): ");
+                startDate = LocalDate.parse(scanner.nextLine(), formatter);
+                System.out.print("Enter end date (dd/MM/yyyy): ");
+                endDate = LocalDate.parse(scanner.nextLine(), formatter);
+                if (startDate.isBefore(endDate)) {
                     break;
                 } else {
-                    System.err.println("Lỗi: Ngày bắt đầu phải trước ngày kết thúc. Vui lòng nhập lại.");
+                    System.err.println("Error: start date > end date");
                 }
             } catch (DateTimeParseException e) {
-                System.err.println("Lỗi: Định dạng ngày không hợp lệ. Vui lòng nhập theo định dạng dd/MM/yyyy.");
+                System.err.println("Error date");
             }
         }
-        bookingService.addNewBooking(new Booking(maBooking, maKhachHang, maDichVu, ngayBooking, ngayBatDau, ngayKetThuc));
+        bookingService.addNewBooking(new Booking(maBooking, maKhachHang, maDichVu, dateBooking, startDate, endDate));
     }
 }
