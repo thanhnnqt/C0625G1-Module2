@@ -58,11 +58,11 @@ public class BookingManagementController {
     private void addNewBooking() {
         System.out.println("\n--- ADD NEW BOOKING ---");
         System.out.print("Enter id booking: ");
-        String maBooking = scanner.nextLine();
+        String idBooking = scanner.nextLine();
         System.out.print("Enter id customer: ");
-        String maKhachHang = scanner.nextLine();
+        String idCustomer = scanner.nextLine();
         System.out.print("Enter id service: ");
-        String maDichVu = scanner.nextLine();
+        String idService = scanner.nextLine();
         LocalDate startDate = null;
         LocalDate endDate = null;
         LocalDate dateBooking = null;
@@ -83,6 +83,6 @@ public class BookingManagementController {
                 System.err.println("Error date");
             }
         }
-        bookingService.addNewBooking(new Booking(maBooking, maKhachHang, maDichVu, dateBooking, startDate, endDate));
+        bookingService.addNewBooking(new Booking(idBooking, idCustomer, idService, dateBooking, startDate, endDate));
     }
 }
