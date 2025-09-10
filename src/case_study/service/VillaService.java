@@ -22,4 +22,14 @@ public class VillaService implements IVillaService {
     public boolean edit(String id, Villa villa) {
         return villaRepository.edit(id, villa);
     }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean search(String id) {
+        return false;
+    }
 }

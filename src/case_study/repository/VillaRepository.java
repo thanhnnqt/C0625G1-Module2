@@ -32,4 +32,14 @@ public class VillaRepository implements IVillaRepository{
     public boolean edit(String id, Villa villa) {
         return false;
     }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean search(String id) {
+        return false;
+    }
 }

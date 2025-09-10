@@ -1,6 +1,5 @@
 package case_study.entity;
 
-import java.time.LocalDate;
 
 public class Room extends Facility {
     private String freeService;
@@ -23,7 +22,8 @@ public class Room extends Facility {
 
     @Override
     public String toString() {
-        return getIdService() + ", " + getName() + ", " + getAreaRoom() + ", " + getPrice() + ", " + getNumberCustomer() + ", " + freeService;
+        return "Id service: " + getIdService() + ", " + "Room name: " + getName() + ", " + "Area room: " + getAreaRoom()
+                + ", " + "Price: " + getPrice() + ", " + "Number customer: " + getNumberCustomer() + ", " + "Free service: " + freeService;
     }
 
     public String getInfoToCSV() {

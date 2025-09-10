@@ -1,6 +1,7 @@
 package case_study.repository;
 
 import java.util.List;
+import java.util.Objects;
 
 public interface IRepository<T> {
     List<T> findAll();
@@ -8,4 +9,8 @@ public interface IRepository<T> {
     boolean add(T t);
 
     boolean edit(String id, T t);
+
+    boolean delete(String id);
+
+    boolean search(String id);
 }

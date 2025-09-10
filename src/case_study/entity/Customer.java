@@ -35,8 +35,9 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return getName() + ", " + getPhoneNumber() + ", " + getDate().format(timeFormatter) + ", " + getId() + ", " + getAddress() + ", " +
-                getGender() + ", " + getEmail() + ", " + idCustomer + ", " + rank;
+        return "Customer name: " + getName() + ", " + "Phone number: " + getPhoneNumber() + ", " + "Date of birth: "
+                + getDate().format(timeFormatter) + ", " + "Id card: " + getId() + ", " + "Address: " + getAddress() + ", " +
+                 "Gender: " + getGender() + ", " + "Email: " + getEmail() + ", " + "Id customer: " + idCustomer + ", " + "Rank: " + rank;
     }
 
     public String getInfoToCSV() {

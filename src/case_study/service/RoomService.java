@@ -22,4 +22,14 @@ public class RoomService implements IRoomService {
     public boolean edit(String id, Room room) {
         return roomRepository.edit(id, room);
     }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean search(String id) {
+        return false;
+    }
 }

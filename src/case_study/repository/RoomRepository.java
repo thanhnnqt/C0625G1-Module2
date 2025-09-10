@@ -31,4 +31,14 @@ public class RoomRepository implements IRoomRepository {
     public boolean edit(String id, Room room) {
         return false;
     }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean search(String id) {
+        return false;
+    }
 }

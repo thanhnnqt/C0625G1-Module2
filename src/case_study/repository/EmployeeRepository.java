@@ -71,4 +71,46 @@ public class EmployeeRepository implements IEmployeeRepository {
             return false;
         }
     }
+
+    @Override
+    public boolean delete(String id) {
+        try {
+            List<Employee> employeeList = findAll();
+            boolean removed = false;
+            for (int i = 0; i < employeeList.size(); i++) {
+                if (id.equals(employeeList.get(i).getIdEmployee())) {
+                    employeeList.remove(i);
+                    removed = true;
+                    break;
+                }
+            }
+            if (removed) {
+                List<String> stringList = new ArrayList<>();
+                for (Employee employee : employeeList) {
+                    stringList.add(employee.getInfoToCSV());
+                }
+                bai_tap_co_ban.util.ReadAndWriteFile.writeFileCSV(EMPLOYEE, stringList, false);
+            }
+            return removed;
+        } catch (IOException e) {
+            System.out.println("Error write file");
+            return false;
+        }
+    }
+
+    @Override
+    public boolean search(String id) {
+        List<Employee> employeeList = findAll();
+        try {
+            for (Employee employee : employeeList) {
+                if (id.equals(employee.getIdEmployee())) {
+                    System.out.println(employee);
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error read file");
+        }
+        return false;
+    }
 }

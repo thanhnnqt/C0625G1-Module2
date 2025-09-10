@@ -22,4 +22,14 @@ public class CustomerService implements ICustomerService {
     public boolean edit(String id, Customer customer) {
         return customerRepository.edit(id, customer);
     }
+
+    @Override
+    public boolean delete(String id) {
+        return customerRepository.delete(id);
+    }
+
+    @Override
+    public boolean search(String id) {
+        return customerRepository.search(id);
+    }
 }

@@ -65,4 +65,6 @@ public class Validate {
             throw new InputException("Name service error");
         }
     }
+
+    //Viết phương thức kiểm tra id employee đã có thì phải nhập lại
 }

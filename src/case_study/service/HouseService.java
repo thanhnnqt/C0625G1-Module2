@@ -22,4 +22,14 @@ public class HouseService implements IHouseService{
     public boolean edit(String id, House house) {
         return houseRepository.edit(id, house);
     }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean search(String id) {
+        return false;
+    }
 }

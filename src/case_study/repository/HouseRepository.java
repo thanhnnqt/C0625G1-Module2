@@ -70,4 +70,14 @@ public class HouseRepository implements IHouseRepository {
             return false;
         }
     }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean search(String id) {
+        return false;
+    }
 }

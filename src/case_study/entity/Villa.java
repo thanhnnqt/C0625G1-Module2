@@ -1,6 +1,5 @@
 package case_study.entity;
 
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Villa extends Facility {
@@ -45,7 +44,8 @@ public class Villa extends Facility {
 
     @Override
     public String toString() {
-        return getIdService() + ", " + getName() + ", " + getAreaRoom() + ", " + getPrice() + ", " + getNumberCustomer() + ", " + standard + ", " + areaPool + ", " + numberFloor;
+        return "Id service: " + getIdService() + ", " + "Villa name: " + getName() + ", " + "Area villa: " + getAreaRoom() + ", " + "Price: "
+                + getPrice() + ", " + "Number customer: " + getNumberCustomer() + ", " + "Standard: " + standard + ", " + "Area pool: " + areaPool + ", " + "Number floor: " + numberFloor;
     }
 
     public String getInfoToCSV() {

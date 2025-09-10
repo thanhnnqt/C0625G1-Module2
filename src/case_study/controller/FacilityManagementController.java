@@ -23,7 +23,8 @@ public class FacilityManagementController {
         Scanner scanner = new Scanner(System.in);
         final int DISPLAY = 1;
         final int ADD = 2;
-        final int EDIT = 3;
+        final int DISPLAYMAIN = 3;
+        final int DEL = 4;
         boolean flag = true;
         while (flag) {
             System.out.println("Customer Facility");
@@ -31,7 +32,8 @@ public class FacilityManagementController {
                     "\n 1. Display list facility" +
                     "\n 2. Add new facility" +
                     "\n 3. Display list facility maintenance" +
-                    "\n 4. Return main menu");
+                    "\n 4. Delete facility" +
+                    "\n 5. Return main menu");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case DISPLAY:
@@ -42,7 +44,7 @@ public class FacilityManagementController {
                 case ADD:
                     displayMenuFacility();
                     break;
-                case EDIT:
+                case DISPLAYMAIN:
                     break;
                 default:
                     flag = false;

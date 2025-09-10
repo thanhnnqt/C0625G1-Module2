@@ -1,6 +1,8 @@
 package case_study.view;
 
 import case_study.entity.Employee;
+import case_study.repository.EmployeeRepository;
+import case_study.service.EmployeeService;
 import case_study.util.InputException;
 import case_study.util.Validate;
 

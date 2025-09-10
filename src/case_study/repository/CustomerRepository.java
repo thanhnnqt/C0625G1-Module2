@@ -1,6 +1,7 @@
 package case_study.repository;
 
 import case_study.entity.Customer;
+import case_study.entity.Employee;
 import case_study.util.ReadAndWriteFile;
 
 import java.io.IOException;
@@ -69,5 +70,47 @@ public class CustomerRepository implements ICustomerRepository {
             System.out.println("Error");
             return false;
         }
+    }
+
+    @Override
+    public boolean delete(String id) {
+        try {
+            List<Customer> customerList = findAll();
+            boolean removed = false;
+            for (int i = 0; i < customerList.size(); i++) {
+                if (id.equals(customerList.get(i).getIdCustomer())) {
+                    customerList.remove(i);
+                    removed = true;
+                    break;
+                }
+            }
+            if (removed) {
+                List<String> stringList = new ArrayList<>();
+                for (Customer customer : customerList) {
+                    stringList.add(customer.getInfoToCSV());
+                }
+                bai_tap_co_ban.util.ReadAndWriteFile.writeFileCSV(CUSTOMER, stringList, false);
+            }
+            return removed;
+        } catch (IOException e) {
+            System.out.println("Error write file");
+            return false;
+        }
+    }
+
+    @Override
+    public boolean search(String id) {
+        List<Customer> customerList = findAll();
+        try {
+            for (Customer customer : customerList) {
+                if (id.equals(customer.getIdCustomer())) {
+                    System.out.println(customer);
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error read file");
+        }
+        return false;
     }
 }

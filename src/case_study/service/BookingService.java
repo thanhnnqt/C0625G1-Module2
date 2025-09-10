@@ -45,7 +45,7 @@ public class BookingService {
     public void displayAllBookings() {
         Set<Booking> allBookings = bookingRepository.getAllBookings();
         if (allBookings.isEmpty()) {
-            System.out.println("No found booking");
+            System.out.println("Not found booking");
             return;
         }
         System.out.println("--- ALL CONTRACT ---");

@@ -55,9 +55,11 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return getName() + ", " + getPhoneNumber() + ", " + getDate().format(timeFormatter) + ", " + getId() + ", " + getAddress() + ", " + getGender() + ", " +
-                idEmployee + ", " + salary + ", " + level + ", " + location + ", " + getEmail();
+        return "Employee name: " + getName() + ", " + "Phone number: " + getPhoneNumber() + ", " + "Date of birth: " + getDate().format(timeFormatter)
+                + ", " + "Id card: " + getId() + ", " + "Address: " + getAddress() + ", " + "Gender: " + getGender() + ", " +
+                "Id employee: " + idEmployee + ", " + "Salary: " + salary + ", " + "Level: " + level + ", " + "Location: " + location + ", " + "Email: " + getEmail();
     }
+
     public String getInfoToCSV() {
         return getName() + "," + getPhoneNumber() + "," + getDate().format(timeFormatter) + "," + getId() + "," + getAddress() + "," + getGender() + "," +
                 idEmployee + "," + salary + "," + level + "," + location + "," + getEmail();

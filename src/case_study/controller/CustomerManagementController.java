@@ -16,6 +16,8 @@ public class CustomerManagementController {
         final int DISPLAY = 1;
         final int ADD = 2;
         final int EDIT = 3;
+        final int DEL = 4;
+        final int SEARCH = 5;
         boolean flag = true;
         while (flag) {
             System.out.println("Customer Management");
@@ -23,7 +25,9 @@ public class CustomerManagementController {
                     "\n 1. Display list customers" +
                     "\n 2. Add new customer" +
                     "\n 3. Edit customer" +
-                    "\n 4. Return main menu");
+                    "\n 4. Delete customer" +
+                    "\n 5. Search customer" +
+                    "\n 6. Return main menu");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case DISPLAY:
@@ -42,6 +46,19 @@ public class CustomerManagementController {
                     Customer customerEdit = CustomerView.editData(editCustomer);
                     this.customerService.edit(editCustomer, customerEdit);
                     System.out.println("Edited");
+                    break;
+                case DEL:
+                    System.out.println("This is the delete function");
+                    System.out.println("Enter id customer");
+                    String idDel = scanner.nextLine();
+                    this.customerService.delete(idDel);
+                    System.out.println("Deleted this customer");
+                    break;
+                case SEARCH:
+                    System.out.println("This is the search function");
+                    System.out.println("Enter id customer");
+                    String idSearch = scanner.nextLine();
+                    this.customerService.search(idSearch);
                     break;
                 default:
                     flag = false;
